@@ -23,14 +23,25 @@ step2:￼
 关于参数param,必须遵循key->type(基本数据类型+String)的形式进行规范。如:id->int,name->String,isClose->boolean
 </pre>
 
-#####3.添加path方式
+#####3.多种方式添加path
 step1:注解的方式添加
+<pre>
+@Router(path = "module://activity/about", param = {"id->int", "name->String"})
+public class AboutActivity extends Activity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Toast.makeText(this, getIntent().getStringExtra("name") + "", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getIntent().geIntExtra("id", 0) + "", Toast.LENGTH_LONG).show();
+    }
+}
+</pre>
 
 |         注解             |参数      |       请求        |
 | :---------------------- |:---------|:-----------------|
 | @Router(path="module://activity/about")|无参数 |module://activity/about |
-| @Router(path="module://activity/about",params="id->int")|1个参数|module://activity/about?id=123 |
-| @Router(path="module://activity/about",params={"id->int","name->String"})|多个参数|module://activity/about?id=123&name=ant
+| @Router(path="module://activity/about",param="id->int")|1个参数|module://activity/about?id=123 |
+| @Router(path="module://activity/about",param={"id->int","name->String"})|多个参数|module://activity/about?id=123&name=ant
 
 step2:代码的方式添加
 <pre>(无参数)
@@ -42,4 +53,89 @@ paramList.add("id->int");
 paramList.add("name->String");
 AntCavesRouter.addRouter("module://activity/about",paramList,Activity.class);
 </pre>
-####友盟事件埋点太繁琐
+#####4.最常见的跳转方式
+<pre>AntCavesRouter.getInstance().prepare(Activity.this, path).go();</pre>
+#####5.支持传递Object
+User:
+<pre>
+public class User implements Serializable {
+    private int id;
+    private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</pre>
+<pre>
+A->B
+A:
+User user = new User();
+user.setId(10086);
+user.setName("this is a object");
+AntCavesRouter.getInstance().prepare(Activity.this, path).equipExtra("user", user).go();
+
+B:
+User user = (User) getIntent().getSerializableExtra("user");
+</pre>
+#####6.支持跳转事件回调
+通过跳转事件回调，得知是否跳转成功/失败/被拦截
+<pre>
+ AntCavesRouter.getInstance().prepare(Activity.this, path).go(new IAntCallBack() {
+            @Override
+            public void onLost(Context context, String message) {
+            }
+
+            @Override
+            public void onArrival(Context context, String message) {
+
+            }
+
+            @Override
+            public void onInterceptor(Context context, String message) {
+
+            }
+        });
+</pre>
+#####7.支持startActivityForResult和setResult跳转方式
+<pre>
+A->B->A
+A->B: int requestCode = 1;
+      AntCavesRouter.getInstance().prepare(this, "activity://aba").go(requestCode);
+      
+B->A: setResult(RESULT_OK,intent);
+
+A: 
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    //from B 
+}
+</pre>
+#####8.支持添加拦截处理
+自定义添加拦截器 CustomInterceptor extends Interceptor
+<pre>
+public class CustomInterceptor extends Interceptor {
+    @Override
+    public void process(Context context, String path, IInterceptorCallBack iInterceptorCallBack) {
+     //do something: show Dialog,intent to another Activity etc.
+   }
+}
+</pre>
+添加拦截器
+<pre>
+AntCavesRouter.getInstance().prepare(Activity.this, path).addInterceptor(new CustomInterceptor()).go();
+</pre>
+####友盟等事件埋点太繁琐
