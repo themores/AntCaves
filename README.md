@@ -7,6 +7,39 @@ Android Router 框架，取名为AntCaves，中文名”蚁穴“。
 工作契机，于是正好有机会实现这一想法。
 题外话，佩服的动物莫过于蚂蚁，最佩服的人莫过于唐朝郭子仪。
 ####如何导入？
+step1:在project-build.gradle 添加<pre>classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'</pre>
+
+step2:￼
+
 ####如何使用？
-####多种方式添加path
+#####1.初始化
+<pre>
+1.build项目
+2.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
+</pre>
+#####2.说明
+<pre>
+关于path,必须遵循http url形式。如:module://activity/about
+关于参数param,必须遵循key->type(基本数据类型+String)的形式进行规范。如:id->int,name->String,isClose->boolean
+</pre>
+
+#####3.添加path方式
+step1:注解的方式添加
+
+|         注解             |参数      |       请求        |
+| :---------------------- |:---------|:-----------------|
+| @Router(path="module://activity/about")|无参数 |module://activity/about |
+| @Router(path="module://activity/about",params="id->int")|1个参数|module://activity/about?id=123 |
+| @Router(path="module://activity/about",params={"id->int","name->String"})|多个参数|module://activity/about?id=123&name=ant
+
+step2:代码的方式添加
+<pre>(无参数)
+AntCavesRouter.addRouter("module://activity/about",Activity.class)
+</pre>
+<pre>(有参数)
+List<String> paramList = new ArrayList();
+paramList.add("id->int");
+paramList.add("name->String");
+AntCavesRouter.addRouter("module://activity/about",paramList,Activity.class);
+</pre>
 ####友盟事件埋点太繁琐
