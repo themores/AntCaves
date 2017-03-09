@@ -139,3 +139,9 @@ public class CustomInterceptor extends Interceptor {
 AntCavesRouter.getInstance().prepare(Activity.this, path).addInterceptor(new CustomInterceptor()).go();
 </pre>
 ####友盟等事件埋点太繁琐
+####注意事项
+1.跨module 有待测试
+2.暂时不支持跨进程
+
+####沟通联系：
+加群：284430347
