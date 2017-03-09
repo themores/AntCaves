@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_76ed60fc82f8df893a1da0bbd88785e6115545d5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_8dccd22aa8114e706ddfb093309472ad5c726b7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.2.0_4b16150d168ca7edc70dd1c49768bad20da49f47.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_f713330e5fabc692bef8b7796fee769886b47131.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.2.0_2428fb4a12d99b10a07c002f92e7c27fd4d9e374.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/gson-2.8.0_a9326ae0dba17d735ba94957e558722ee2cdf4d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/com/google/guava/guava/18.0/guava-18.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/guava-18.0_e11ced1631feb7c9800790c98fd765d3bed1b86c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_be36ba93a1e1ffa125d0ed8c8586e27a3a9243db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/.gradle/caches/modules-2/files-2.1/com.google.auto/auto-common/0.3/4073ab16ab4aceb9a217273da6442166bf51ae16/auto-common-0.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4073ab16ab4aceb9a217273da6442166bf51ae16">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/auto-common-0.3_216a8741265f19676e596d7a3254069da97b1b6a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.2.0_8542f7f65e724b2cbf16e06e2bbe64dbe07cad79.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_bfa252257c6f4d8b323488935c904a567af8ec26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.2.0_1f3af70b597a19bf8bb8a9acb1e3f1075b29f53a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/annotation/build/libs/annotation.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30dfa22d1e9d1b9b473c1ac69a02cf8d6b5a57c9">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/annotation_09defeb7c2c21167eb96231fbc66d18f36a40eaa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.2.0_2fc3f5009a1e0c4fa0b7a1a30944d34d12cc143e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.2.0_ca493fba6f86b67a0940dc41201fc808373239f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_db6c2170c02b441039defe7152ddf171fb53dc94.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/AntCaves/antcaves/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8e430deccc6553050f72a910c3caca6aa90dba0c">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/AntCaves-antcaves-unspecified_0980bfaf8ff88699164984a061b1e8889b578939.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.0-alpha9/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f2b64f6a762f61a2379d6a79af03e2ee56eefe0b">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.0-alpha9_929ee1d337e49e192b469cde27781367a6d830d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-alpha9/constraint-layout-solver-1.0.0-alpha9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6a908fd0803cc5f65b007101002aec06dc7544da">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-alpha9_74aa615670b9c3d16a3e8bb98e8f1e5d53fbe949.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/.gradle/caches/modules-2/files-2.1/com.google.auto.service/auto-service/1.0-rc2/51033a5b8fcf7039159e35b6878f106ccd5fb35f/auto-service-1.0-rc2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="51033a5b8fcf7039159e35b6878f106ccd5fb35f">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/auto-service-1.0-rc2_11e13111d83ddada3cdd6213a87e68ddeaae5dcb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/liyuan/.gradle/caches/modules-2/files-2.1/com.squareup/javapoet/1.8.0/e858dc62ef484048540d27d36f3ec2177a3fa9b1/javapoet-1.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e858dc62ef484048540d27d36f3ec2177a3fa9b1">
+        <dex dex="/Users/liyuan/AntCaves/AntCaves/demo/build/intermediates/pre-dexed/debug/javapoet-1.8.0_edb6429e611c8494b3dfd3dbc31cc544bb6a3af4.jar" />
+    </item>
+
+</items>
