@@ -14,8 +14,22 @@ step2:￼
 ####如何使用？
 #####1.初始化
 <pre>
-1.build项目
-2.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
+1.注册module
+<pre>在module中，常见为app_module,在Application类或者新建一个类，添加注解。
+@Modules(module = "app")
+public class App extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+}
+</pre>
+同时在主module 上的任意一个activity 上添加改注解module 的名字 
+<pre>
+@Router(module = "app", path = "activity/about")
+</pre>
+2.build项目
+3.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
 </pre>
 #####2.说明
 <pre>
@@ -26,7 +40,7 @@ step2:￼
 #####3.多种方式添加path
 step1:注解的方式添加
 <pre>
-@Router(path = "module://activity/about", param = {"id->int", "name->String"})
+@Router(path = "activity/about", param = {"id->int", "name->String"})
 public class AboutActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,9 +53,9 @@ public class AboutActivity extends Activity {
 
 |         注解             |参数      |       请求        |
 | :---------------------- |:---------|:-----------------|
-| @Router(path="module://activity/about")|无参数 |module://activity/about |
-| @Router(path="module://activity/about",param="id->int")|1个参数|module://activity/about?id=123 |
-| @Router(path="module://activity/about",param={"id->int","name->String"})|多个参数|module://activity/about?id=123&name=ant
+| @Router(path="activity/about")|无参数 |module://activity/about |
+| @Router(path="activity/about",param="id->int")|1个参数|module://activity/about?id=123 |
+| @Router(path="activity/about",param={"id->int","name->String"})|多个参数|module://activity/about?id=123&name=ant
 
 step2:代码的方式添加
 <pre>(无参数)
@@ -138,10 +152,28 @@ public class CustomInterceptor extends Interceptor {
 <pre>
 AntCavesRouter.getInstance().prepare(Activity.this, path).addInterceptor(new CustomInterceptor()).go();
 </pre>
+#####9.支持多module方式
+1.注册多module
+<pre>在主module中，常见为app_module,在Application类或者新建一个类，添加注解。
+@Modules(module = {"app", "demo"})
+public class App extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+}
+</pre>
+同时在主module 上的任意一个activity 上添加改注解module 的名字 
+<pre>
+@Router(module = "app", path = "activity://aba")
+</pre>
+同样在其他module 上的任意activity 上添加改注解module 的名字 
+<pre>
+@Router(module = "demo", path = "demo://activity/demo")
+</pre>
 ####友盟等事件埋点太繁琐
 ####注意事项
-1.跨module 有待测试
-2.暂时不支持跨进程
+1.暂时不支持跨进程
 
 ####沟通联系：
 加群：284430347
