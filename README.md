@@ -7,8 +7,9 @@ Android Router 框架，取名为AntCaves，中文名”蚁穴“。
 工作契机，于是正好有机会实现这一想法。
 题外话，佩服的动物莫过于蚂蚁，最佩服的人莫过于唐朝郭子仪。
 ####如何导入？
-step1:在project-build.gradle 添加<pre>classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'</pre>
-
+方式1:下载源码导入
+<pre>
+</pre>
 step2:￼
 
 ####如何使用？
@@ -23,11 +24,8 @@ public class App extends Application {
         super.onCreate();
     }
 }
-</pre>
 同时在主module 上的任意一个activity 上添加改注解module 的名字 
-<pre>
 @Router(module = "app", path = "activity/about")
-</pre>
 2.build项目
 3.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
 </pre>
