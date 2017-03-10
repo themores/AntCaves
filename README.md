@@ -16,7 +16,7 @@ step2:￼
 #####1.初始化
 <pre>
 1.注册module
-<pre>在module中，常见为app_module,在Application类或者新建一个类，添加注解。
+在module中，常见为app_module,在Application类或者新建一个类，添加注解。
 @Modules(module = "app")
 public class App extends Application {
     @Override
