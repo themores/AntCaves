@@ -1,6 +1,6 @@
 # AntCaves
 Android Router 框架，取名为AntCaves，中文名”蚁穴“。
- <img src="https://github.com/themores/AntCaves/raw/master/img/IMG_3063(20170311-183321).jpg" width = "600" height = "800" align=center />
+ <img src="https://github.com/themores/AntCaves/raw/master/img/IMG_3063(20170311-183321).jpg" width = "360" height = "480" align=center />
 ####关于名字的一个故事
 说起名字的由来，得从大四那年在武汉学车的时候。记得是学科目二的时候一个下午，在学车地方看到了一个蚂蚁窝。虽然小时候经常看到蚂蚁窝，
 但是经过4年计算机技术体系的学习，对软件架构有了一定的认知。于是对蚂蚁窝的建筑架构有了一定的兴趣，当时把一个蚂蚁洞口堵住，完全不影响其他洞口的工作。
@@ -183,6 +183,8 @@ public class App extends Application {
 1.暂时不支持跨进程
 2.日志打印优化
 3.代码规范优化
+####感谢
+感谢ActivityRouter作者曹神，ARouter作者Alex.
 ####联系：
 个人邮箱：thisuper@163.com
 加群沟通：284430347
