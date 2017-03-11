@@ -7,11 +7,20 @@ Android Router 框架，取名为AntCaves，中文名”蚁穴“。
 工作契机，于是正好有机会实现这一想法。
 题外话，佩服的动物莫过于蚂蚁，最佩服的人莫过于唐朝郭子仪。
 ####如何导入？
-方式1:下载源码导入
+step1:在project build.gradle 文件中添加如下仓库
 <pre>
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
 </pre>
-step2:￼
-
+step2:￼在项目module中build.gradle 添加如下引用(如果是多module 的情况下，在不同的module下同样添加以下引入)
+<pre>
+  compile 'com.github.themores.AntCaves:antcaves:1.0.3'
+  compile 'com.github.themores.AntCaves:annotation:1.0.3'
+</pre>
 ####如何使用？
 #####1.初始化
 <pre>
@@ -167,11 +176,12 @@ public class App extends Application {
 </pre>
 同样在其他module 上的任意activity 上添加改注解module 的名字 
 <pre>
-@Router(module = "demo", path = "demo://activity/demo")
+@Router(module = "demo", path = "activity/demo")
 </pre>
-####友盟等事件埋点太繁琐
-####注意事项
+####迭代优化
 1.暂时不支持跨进程
-
-####沟通联系：
-加群：284430347
+2.日志打印优化
+3.代码规范优化
+####联系：
+个人邮箱：thisuper@163.com
+加群沟通：284430347
