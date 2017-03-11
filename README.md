@@ -176,7 +176,7 @@ public class App extends Application {
 </pre>
 同样在其他module 上的任意activity 上添加改注解module 的名字 
 <pre>
-@Router(module = "demo", path = "demo://activity/demo")
+@Router(module = "demo", path = "activity/demo")
 </pre>
 ####迭代优化
 1.暂时不支持跨进程
