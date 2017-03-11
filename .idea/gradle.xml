@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/annotation" />
             <option value="$PROJECT_DIR$/antcaves" />
             <option value="$PROJECT_DIR$/demo" />
+            <option value="$PROJECT_DIR$/demo1" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
