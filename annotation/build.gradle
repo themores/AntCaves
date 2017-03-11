@@ -5,6 +5,8 @@ ext {
     libraryName = 'AntCaves annotation'
     libraryDescription = 'The annotation used in arouter api'
     libraryVersion = '1.0.0'
+    siteUrl = 'https://github.com/themores/AntCaves/'
+    gitUrl = 'https://github.com/themores/AntCaves.git'
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
