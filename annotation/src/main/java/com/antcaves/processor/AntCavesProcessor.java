@@ -28,6 +28,7 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
+import javax.tools.Diagnostic;
 
 /**
  * 自定义注解类
@@ -42,7 +43,6 @@ public class AntCavesProcessor extends AbstractProcessor {
     private TypeMirror typeMirror = null;
     private Filer filer;
     private Messager messager;
-    private boolean isInit = false;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
@@ -78,7 +78,6 @@ public class AntCavesProcessor extends AbstractProcessor {
                 if (checkPathRole(moduleName + "://" + router.path())) {
                     StringBuffer keys = new StringBuffer();
                     for (int i = 0; i < router.param().length; i++) {
-                        System.out.println("keys=" + router.param()[i]);
                         if (i < router.param().length - 1) {
                             keys.append(router.param()[i] + "@");
                         } else {
@@ -89,12 +88,12 @@ public class AntCavesProcessor extends AbstractProcessor {
                         map.put(moduleName + "://" + router.path(), ClassName.get((TypeElement) element));
                     if (!keys.equals(""))
                         param.put(moduleName + "://" + router.path(), new String(keys));
-                    System.out.println("success:[" + element.getSimpleName() + "] path=" + router.path());
+                    debug("success:[" + element.getSimpleName() + "] path=" + router.path());
                 } else {
-                    System.out.println("failure:[" + element.getSimpleName() + "] Your path does not conform to the rules,you must change your path(module://activity)!");
+                    debug("failure:[" + element.getSimpleName() + "] Your path does not conform to the rules,you must change your path(module://activity)!");
                 }
             } else {
-                System.out.println("failure:not find activity");
+                debug("failure:not find activity");
             }
         }
         boolean isModules = false;
@@ -181,5 +180,14 @@ public class AntCavesProcessor extends AbstractProcessor {
         Pattern pattern = Pattern.compile(MATCH_ROLE);
         Matcher matcher = pattern.matcher(path);
         return matcher.matches();
+    }
+
+    /**
+     * 打印日志
+     *
+     * @param log
+     */
+    private void debug(String log) {
+        messager.printMessage(Diagnostic.Kind.NOTE, log);
     }
 }

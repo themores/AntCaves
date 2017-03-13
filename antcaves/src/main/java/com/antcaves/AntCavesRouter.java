@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -73,8 +72,10 @@ public class AntCavesRouter implements ISecrete {
     public void go(IAntCallBack iAntCallBack) {
         if (intent == null && mContext == null) {
             if (isInterceptor) {
+                ALogger.e("AntCaves Exception:", "Ant got lost: [reason] you add interceptor");
                 iAntCallBack.onInterceptor(mContext, "Ant got lost: [reason] you add interceptor");
             } else {
+                ALogger.e("AntCaves Exception:", "Ant got lost: [reason] your path mismatch,please check again");
                 iAntCallBack.onLost(mContext, "Ant got lost: [reason] your path mismatch,please check again");
             }
         } else {
@@ -84,6 +85,7 @@ public class AntCavesRouter implements ISecrete {
                 intent = null;
                 iAntCallBack.onArrival(mContext, "Ant found the way");
             } catch (Exception e) {
+                ALogger.e("AntCaves Exception:", "Ant got lost :[reason] " + e.getMessage());
                 iAntCallBack.onLost(mContext, "Ant got lost :[reason] " + e.getMessage());
             }
         }
@@ -93,16 +95,20 @@ public class AntCavesRouter implements ISecrete {
     public void go(int requestCode, IAntCallBack iAntCallBack) {
         if (intent == null && mContext == null) {
             if (isInterceptor) {
+                ALogger.e("AntCaves Exception:", "Ant got lost: [reason] you add interceptor");
                 iAntCallBack.onInterceptor(mContext, "Ant got lost: [reason] you add interceptor");
             } else {
+                ALogger.e("AntCaves Exception:", "Ant got lost: [reason] your path mismatch,please check again");
                 iAntCallBack.onLost(mContext, "Ant got lost: [reason] your path mismatch,please check again");
             }
         } else {
             try {
                 ((Activity) mContext).startActivityForResult(intent, requestCode);
                 intent = null;
+                ALogger.d("AntCaves Success", "Ant found the way");
                 iAntCallBack.onArrival(mContext, "Ant found the way");
             } catch (Exception e) {
+                ALogger.e("AntCaves Exception:", "Ant got lost :[reason] " + e.getMessage());
                 iAntCallBack.onLost(mContext, "Ant got lost :[reason] " + e.getMessage());
             }
         }
@@ -115,7 +121,7 @@ public class AntCavesRouter implements ISecrete {
         String url[] = path.split("\\?");
         if (url.length > 0) {
             if (AntCaves.getRouters().get(url[0]) == null) {
-                Log.e("failure:", "your path mismatch,please check again");
+                ALogger.e("failure:", "your path mismatch,please check again");
             } else {
                 intent = new Intent(mContext, AntCaves.getRouters().get(url[0]));
                 if (!(context instanceof Activity))
@@ -206,11 +212,10 @@ public class AntCavesRouter implements ISecrete {
 
     private void parseUrl(String path) {
         if (!checkPathRole(path)) {
-            Log.e("parseUrl", "Ant got lost: [reason] your path mismatch,please check again");
+            ALogger.e("parseUrl", "Ant got lost: [reason] your path mismatch,please check again");
         } else {
             //第一步取出参数module://activity?name=''&value=123
             String url[] = path.split("\\?");
-            Log.e("success:", url.length + "");
             if (url.length == 2) {
                 //取出path中的key值
                 String keys = AntCaves.getParams().get(url[0]);
@@ -227,12 +232,12 @@ public class AntCavesRouter implements ISecrete {
                             keyMap.put(kv[0], kv[1]);
                             paramMap.put(p_kv[0], p_kv[1]);
                         } else {
-                            Log.e("failure:", "you lost some name or type(name->type)");
+                            ALogger.e("failure:", "you lost some name or type(name->type)");
                         }
                     }
 
                 } else {
-                    Log.e("failure:", "you lost some parameters");
+                    ALogger.e("failure:", "you lost some parameters");
                 }
                 Set<String> keySet = keyMap.keySet();
                 Set<String> paramSet = paramMap.keySet();
@@ -266,33 +271,8 @@ public class AntCavesRouter implements ISecrete {
                     }
 
                 }
-//
-//                for (int i = 0; i < param.length; i++) {
-//                    String key_value[] = param[i].split("=");
-//                    if (key_value.length == 2) {
-//                        if (key_value[1].startsWith("'") && key_value[1].endsWith("'")) {
-//                            equipString(key_value[0], key_value[1]);
-//                        } else {
-//                            if (key_value[1].equals("false") || key_value.equals("true")) {
-//                                equipBoolean(key_value[0], Boolean.parseBoolean(key_value[1]));
-//                            }
-//                            if (key_value[1].endsWith("L")) {
-//                                equipLong(key_value[0], Long.parseLong(key_value[1].replace("L", "")));
-//                            } else if (key_value[1].endsWith("D")) {
-//                                equipDouble(key_value[0], Double.parseDouble(key_value[1].replace("D", "")));
-//                            } else if (key_value[1].endsWith("F")) {
-//                                equipFloat(key_value[0], Float.parseFloat(key_value[1].replace("F", "")));
-//                            } else {
-//                                equipInt(key_value[0], Integer.parseInt(key_value[1]));
-//                            }
-//
-//                        }
-//                    } else {
-//                        Log.e("failure:", "parameter cannot be null");
-//                    }
-//                }
             } else {
-                Log.e("success:", "there is no parameter ");
+                ALogger.e("success:", "there is no parameter ");
             }
         }
 

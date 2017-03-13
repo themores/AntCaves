@@ -10,5 +10,12 @@ import android.content.Context;
  */
 
 public interface IInterceptor {
+    /**
+     * 拦截器处理
+     *
+     * @param context
+     * @param path
+     * @param iInterceptorCallBack
+     */
     void process(Context context, String path, IInterceptorCallBack iInterceptorCallBack);
 }

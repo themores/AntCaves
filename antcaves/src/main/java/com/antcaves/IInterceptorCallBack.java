@@ -10,5 +10,10 @@ import android.content.Intent;
  */
 
 public interface IInterceptorCallBack {
+    /**
+     * 回调，重新定义intent
+     *
+     * @param intent
+     */
     void interceptor(Intent intent);
 }
