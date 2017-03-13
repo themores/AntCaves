@@ -21,8 +21,8 @@ allprojects {
 </pre>
 step2:￼在项目module中build.gradle 添加如下引用(如果是多module 的情况下，在不同的module下同样添加以下引入)
 <pre>
-  compile 'com.github.themores.AntCaves:antcaves:1.0.3'
-  compile 'com.github.themores.AntCaves:annotation:1.0.3'
+  compile 'com.github.themores.AntCaves:antcaves:1.0.4'
+  compile 'com.github.themores.AntCaves:annotation:1.0.4'
 </pre>
 ####如何使用？
 #####1.初始化
