@@ -1,6 +1,7 @@
 # AntCaves
-Android Router 框架，取名为AntCaves，中文名”蚁穴“。
+[![](https://jitpack.io/v/themores/AntCaves.svg)](https://jitpack.io/#themores/AntCaves) 
 
+Android Router 框架，取名为AntCaves，中文名”蚁穴“。
 
  <img src="https://github.com/themores/AntCaves/raw/master/img/IMG_3063(20170311-183321).jpg" width = "360" height = "480" align=center />
 ####关于名字的一个故事
@@ -181,6 +182,12 @@ public class App extends Application {
 同样在其他module 上的任意activity 上添加改注解module 的名字 
 <pre>
 @Router(module = "demo", path = "activity/demo")
+</pre>
+####混淆配置
+<pre>
+-dontwarn com.google.**
+-dontwarn com.squareup.**
+-dontwarn com.antcaves.**
 </pre>
 ####迭代优化
 1.暂时不支持跨进程
