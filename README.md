@@ -10,7 +10,7 @@ Android Router 框架，取名为AntCaves，中文名”蚁穴“。
 不得不佩服，蚂蚁间的工作车间的解藕，分工明确。道路四通八达，互不影响,他们的架构思维远远超过大多数软件研发。于是当时就跟同学说蚁穴的架构思想。
 工作契机，于是正好有机会实现这一想法。
 题外话，佩服的动物莫过于蚂蚁，最佩服的人莫过于唐朝郭子仪。
-#### 如何导入？
+### 如何导入？
 step1:在project build.gradle 文件中添加如下仓库
 <pre>
 allprojects {
@@ -27,9 +27,9 @@ step2:￼在项目module中build.gradle 添加如下引用(如果是多module �
 </pre>
 其中最新版本lastVersion = 1.0.8
 
-#### 如何使用？
+### 如何使用？
 
-##### 1.初始化
+#### 1.初始化
 <pre>
 1.注册module
 在module中，常见为app_module,在Application类或者新建一个类，添加注解。
@@ -45,13 +45,13 @@ public class App extends Application {
 2.build项目
 3.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
 </pre>
-##### 2.说明
+#### 2.说明
 <pre>
 关于path,必须遵循http url形式。如:module://activity/about
 关于参数param,必须遵循key->type(基本数据类型+String)的形式进行规范。如:id->int,name->String,isClose->boolean
 </pre>
 
-##### 3.多种方式添加path
+#### 3.多种方式添加path
 step1:注解的方式添加
 <pre>
 @Router(path = "activity/about", param = {"id->int", "name->String"})
@@ -79,9 +79,9 @@ AntCavesRouter.addRouter("module://activity/about",Activity.class)
 List<String> paramList = Arrays.asList("id->int","name->String");
 AntCavesRouter.addRouter("module://activity/about",paramList,Activity.class);
 </pre>
-##### 4.最常见的跳转方式
+#### 4.最常见的跳转方式
 <pre>AntCavesRouter.getInstance().prepare(Activity.this, path).go();</pre>
-##### 5.支持传递Object
+#### 5.支持传递Object
 User:
 <pre>
 public class User implements Serializable {
@@ -116,7 +116,7 @@ AntCavesRouter.getInstance().prepare(Activity.this, path).equipExtra("user", use
 B:
 User user = (User) getIntent().getSerializableExtra("user");
 </pre>
-##### 6.支持跳转事件回调
+#### 6.支持跳转事件回调
 通过跳转事件回调，得知是否跳转成功/失败/被拦截
 <pre>
  AntCavesRouter.getInstance().prepare(Activity.this, path).go(new IAntCallBack() {
@@ -135,7 +135,7 @@ User user = (User) getIntent().getSerializableExtra("user");
             }
         });
 </pre>
-##### 7.支持startActivityForResult和setResult跳转方式
+#### 7.支持startActivityForResult和setResult跳转方式
 <pre>
 A->B->A
 A->B: int requestCode = 1;
@@ -164,7 +164,7 @@ public class CustomInterceptor extends Interceptor {
 <pre>
 AntCavesRouter.getInstance().prepare(Activity.this, path).addInterceptor(new CustomInterceptor()).go();
 </pre>
-##### 9.支持多module方式
+#### 9.支持多module方式
 1.注册多module
 <pre>在主module中，常见为app_module,在Application类或者新建一个类，添加注解。
 @Modules(module = {"app", "demo"})
@@ -183,18 +183,18 @@ public class App extends Application {
 <pre>
 @Router(module = "demo", path = "activity/demo")
 </pre>
-#### 混淆配置
+### 混淆配置
 <pre>
 -dontwarn com.google.**
 -dontwarn com.squareup.**
 -dontwarn com.antcaves.**
 </pre>
-#### 迭代优化
+### 迭代优化
 1.暂时不支持跨进程
 2.日志打印优化
 3.代码规范优化
-#### 感谢
+### 感谢
 感谢ActivityRouter作者曹神，ARouter作者Alex.
-#### 联系：
+### 联系：
 个人邮箱：thisuper@163.com
 加群沟通：284430347
