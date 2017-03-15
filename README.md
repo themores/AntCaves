@@ -25,7 +25,7 @@ step2:￼在项目module中build.gradle 添加如下引用(如果是多module �
   compile 'com.github.themores.AntCaves:antcaves:lastVersion'
   compile 'com.github.themores.AntCaves:annotation:lastVersion'
 </pre>
-其中最新版本lastVersion = 1.0.6
+其中最新版本lastVersion = 1.0.8
 ####如何使用？
 #####1.初始化
 <pre>
@@ -74,9 +74,7 @@ step2:代码的方式添加
 AntCavesRouter.addRouter("module://activity/about",Activity.class)
 </pre>
 <pre>(有参数)
-List<String> paramList = new ArrayList();
-paramList.add("id->int");
-paramList.add("name->String");
+List<String> paramList = Arrays.asList("id->int","name->String");
 AntCavesRouter.addRouter("module://activity/about",paramList,Activity.class);
 </pre>
 #####4.最常见的跳转方式
