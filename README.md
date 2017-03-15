@@ -197,7 +197,7 @@ public class App extends Application {
 2.日志打印优化
 3.代码规范优化
 ### 感谢
-感谢ActivityRouter作者曹神，ARouter作者Alex.
+感谢ActivityRouter作者曹神，ARouter作者Alex,Sixgod六神技术和精神支持。
 ### 联系：
 个人邮箱：thisuper@163.com
 加群沟通：284430347
