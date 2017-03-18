@@ -84,7 +84,7 @@ AntCavesRouter.addRouter("module://activity/about",paramList,Activity.class);
 </pre>
 #### 4.最常见的跳转方式
 <pre>AntCavesRouter.getInstance().prepare(Activity.this, path).go();</pre>
-#### 5.支持传递Object
+#### 5.支持传递Object序列化
 User:
 <pre>
 public class User implements Serializable {
