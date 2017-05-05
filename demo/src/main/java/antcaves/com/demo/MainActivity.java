@@ -1,6 +1,5 @@
 package antcaves.com.demo;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import android.widget.Toast;
 
 import com.antcaves.AntCaves;
 import com.antcaves.AntCavesRouter;
-import com.antcaves.IAntCallBack;
 import com.antcaves.processor.Router;
 
 import java.util.ArrayList;
@@ -35,22 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void go(View view) {
-        AntCavesRouter.getInstance().prepare(this, "app://activity/one?one=true&name=liyuan").go(new IAntCallBack() {
-            @Override
-            public void onLost(Context context, String message) {
-            }
-
-            @Override
-            public void onArrival(Context context, String message) {
-
-            }
-
-            @Override
-            public void onInterceptor(Context context, String message) {
-
-            }
-        });
-
+        AntCavesRouter.getInstance().prepare(this, "app://activity/one?one=true&name=liyuan").go();
     }
 
     public void go1(View view) {
@@ -69,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void go4(View view) {
-        AntCavesRouter.getInstance().prepare(this, "demo://activity/demo").go();
+        AntCavesRouter.getInstance().prepare(this, "demo://activity/demo").cross();
     }
 
     @Override

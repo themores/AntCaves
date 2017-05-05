@@ -33,4 +33,6 @@ dependencies {
     compile project(':antcaves')
     compile project(':demo1')
     annotationProcessor project(':annotation')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
+
 }

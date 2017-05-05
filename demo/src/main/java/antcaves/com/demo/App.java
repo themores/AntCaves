@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.antcaves.AntCavesSDK;
 import com.antcaves.processor.Modules;
+import com.squareup.leakcanary.LeakCanary;
 
 
 /**
@@ -18,5 +19,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         AntCavesSDK.init();
+        LeakCanary.install(this);
     }
 }

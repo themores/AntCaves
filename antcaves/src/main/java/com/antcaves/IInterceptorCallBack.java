@@ -1,7 +1,5 @@
 package com.antcaves;
 
-import android.content.Intent;
-
 /**
  * @author liyuan
  * @description
@@ -13,7 +11,12 @@ public interface IInterceptorCallBack {
     /**
      * 回调，重新定义intent
      *
-     * @param intent
+     * @param path
      */
-    void interceptor(Intent intent);
+    void interceptor(String path);
+
+    /**
+     * 无参数拦截
+     */
+    void interceptor();
 }
