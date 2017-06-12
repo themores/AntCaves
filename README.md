@@ -43,7 +43,7 @@ public class App extends Application {
         super.onCreate();
     }
 }
-同时在主module 上的任意一个activity 上添加改注解module 的名字 
+同时在主module 上的每一个activity 上添加该注解module 的名字 
 @Router(module = "app", path = "activity/about")
 2.build项目
 3.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
@@ -178,11 +178,11 @@ public class App extends Application {
     }
 }
 </pre>
-同时在主module 上的任意一个activity 上添加改注解module 的名字 
+同时在主module 上的每一个activity 上添加改注解module 的名字 
 <pre>
 @Router(module = "app", path = "activity://aba")
 </pre>
-同样在其他module 上的任意activity 上添加改注解module 的名字 
+同样在其他module 上每一个activity 上添加改注解module 的名字 
 <pre>
 @Router(module = "demo", path = "activity/demo")
 </pre>
