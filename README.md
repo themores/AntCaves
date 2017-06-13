@@ -28,7 +28,7 @@ step2:￼在项目module中build.gradle 添加如下引用(如果是多module �
   compile 'com.github.themores.AntCaves:antcaves:lastVersion'
   compile 'com.github.themores.AntCaves:annotation:lastVersion'
 </pre>
-其中最新版本lastVersion = 1.1.0
+其中最新版本lastVersion = 1.2.2
 
 ### 如何使用？
 
