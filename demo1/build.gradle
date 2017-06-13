@@ -30,6 +30,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':annotation')
     compile project(':antcaves')
-    compile project(':demo2')
     annotationProcessor project(':annotation')
 }
