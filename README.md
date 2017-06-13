@@ -43,8 +43,11 @@ public class App extends Application {
         super.onCreate();
     }
 }
-同时在主module 上的每一个activity 上添加该注解module 的名字 
-@Router(module = "app", path = "activity/about")
+同时在主module 上的任意一个类 上添加该注解module 的名字 
+@Module(module = "app")
+然后在对应的activity添加path 即可。
+@Router(path = "activity/about") 
+//如果在Router 注解中添加了module = "xxx", 以这个成为module名字。
 2.build项目
 3.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
 </pre>
@@ -178,14 +181,16 @@ public class App extends Application {
     }
 }
 </pre>
-同时在主module 上的每一个activity 上添加改注解module 的名字 
+同时在主module 上的任意一个类添加改注解module 的名字 
 <pre>
-@Router(module = "app", path = "activity://aba")
+@Module(module = "app")
 </pre>
-同样在其他module 上每一个activity 上添加改注解module 的名字 
+同样在其他module 上任意一个类上添加改注解module 的名字 
 <pre>
-@Router(module = "demo", path = "activity/demo")
+@Module(module = "demo")
 </pre>
+然后对应的activity 添加路径即可。
+@Router(path = "activity/demo")
 #### 10.API使用说明（具体使用请看demo）
 |          API        |       说明      |       例子        |
 | :--------------- |:---------------|:-----------------|
