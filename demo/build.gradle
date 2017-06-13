@@ -32,7 +32,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':antcaves')
     compile project(':demo1')
-    compile project(':demo2')
     annotationProcessor project(':annotation')
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
 
