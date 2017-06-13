@@ -43,6 +43,7 @@ public class AntCavesProcessor extends AbstractProcessor {
     private TypeMirror typeMirror = null;
     private Filer filer;
     private Messager messager;
+    private String moduleName;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
@@ -65,16 +66,25 @@ public class AntCavesProcessor extends AbstractProcessor {
         }
 
         Set<? extends Element> routeElements = roundEnv.getElementsAnnotatedWith(Router.class);
+        Set<? extends Element> moduleNames = roundEnv.getElementsAnnotatedWith(Module.class);
+        //获取module 名字
+        for (Element element : moduleNames) {
+            Module module = element.getAnnotation(Module.class);
+            moduleName = module.module();
+        }
+
+
         TypeElement typeElement = elements.getTypeElement(Consts.ACTIVITY);
         Map<String, ClassName> map = new HashMap<>();
         Map<String, String> param = new HashMap<>();
-        String moduleName = "";
         for (Element element : routeElements) {
             typeMirror = element.asType();
             if (types.isSubtype(typeMirror, typeElement.asType())) {
                 Router router = element.getAnnotation(Router.class);
-                if (!router.module().equals(""))
+                debug("module name =" + router.module());
+                if (!router.module().equals("")) {
                     moduleName = router.module();
+                }
                 if (checkPathRole(moduleName + "://" + router.path())) {
                     StringBuffer keys = new StringBuffer();
                     for (int i = 0; i < router.param().length; i++) {

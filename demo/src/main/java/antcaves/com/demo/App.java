@@ -13,7 +13,7 @@ import com.squareup.leakcanary.LeakCanary;
  * @email thisuper@qq.com
  * @date 17/3/9 上午10:12
  */
-@Modules(module = {"app", "demo"})
+@Modules(module = {"app", "demo","demos"})
 public class App extends Application {
     @Override
     public void onCreate() {
@@ -21,4 +21,5 @@ public class App extends Application {
         AntCavesSDK.init();
         LeakCanary.install(this);
     }
+
 }

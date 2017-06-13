@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
+import com.antcaves.processor.Router;
+
 /**
  * @author liyuan
  * @description
  * @email thisuper@qq.com
  * @date 17/3/3 下午9:02
  */
+@Router(path = "activity/two")
 public class TwoActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

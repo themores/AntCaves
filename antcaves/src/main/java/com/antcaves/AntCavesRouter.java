@@ -1,6 +1,7 @@
 package com.antcaves;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * @author liyuan
@@ -28,6 +29,7 @@ public class AntCavesRouter {
             if (path == null || path.isEmpty())
                 throw new Exception("path is null");
             String url[] = path.split("\\?");
+            Log.e("tag", AntCaves.getRouters().get(url[0]) + "");
             if (url.length > 0 && AntCaves.getRouters().get(url[0]) == null)
                 throw new Exception("failure: your path mismatch,please check again");
             Ant ant = new Ant(context, path);

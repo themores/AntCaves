@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.antcaves.AntCaves;
 import com.antcaves.AntCavesRouter;
+import com.antcaves.processor.Module;
 import com.antcaves.processor.Router;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 
 ;
 
+@Module(module = "app")
 @Router(path = "activity/main",
         param = {"id->int", "name->String", "price->double"})
 public class MainActivity extends AppCompatActivity {
