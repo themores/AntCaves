@@ -28,7 +28,7 @@ step2:￼在项目module中build.gradle 添加如下引用(如果是多module �
   compile 'com.github.themores.AntCaves:antcaves:lastVersion'
   compile 'com.github.themores.AntCaves:annotation:lastVersion'
 </pre>
-其中最新版本lastVersion = 1.0.8
+其中最新版本lastVersion = 1.1.0
 
 ### 如何使用？
 
@@ -43,7 +43,7 @@ public class App extends Application {
         super.onCreate();
     }
 }
-同时在主module 上的任意一个activity 上添加改注解module 的名字 
+同时在主module 上的每一个activity 上添加该注解module 的名字 
 @Router(module = "app", path = "activity/about")
 2.build项目
 3.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
@@ -178,14 +178,26 @@ public class App extends Application {
     }
 }
 </pre>
-同时在主module 上的任意一个activity 上添加改注解module 的名字 
+同时在主module 上的每一个activity 上添加改注解module 的名字 
 <pre>
 @Router(module = "app", path = "activity://aba")
 </pre>
-同样在其他module 上的任意activity 上添加改注解module 的名字 
+同样在其他module 上每一个activity 上添加改注解module 的名字 
 <pre>
 @Router(module = "demo", path = "activity/demo")
 </pre>
+#### 10.API使用说明（具体使用请看demo）
+|          API        |       说明      |       例子        |
+| :--------------- |:---------------|:-----------------|
+| prepare(Context context, String path)| 组装/呼叫一个Ant 小蚂蚁|AntCavesRouter.getInstance().prepare(context,path) |
+| go()|module内部跳转|AntCavesRouter.getInstance().prepare(context,path).go() |
+| go(int requestCode)|module内部跳转A->B->A形式|AntCavesRouter.getInstance().prepare(context,path).go(requestCode)｜
+| cross()|module之间进行跳转|AntCavesRouter.getInstance().prepare(context,path).cross()|
+| cross(int requestCode)|module之间进行跳转A->B->A形式|AntCavesRouter.getInstance().prepare(context,path).cross(requestCode)|
+| addInterceptor(Interceptor customInterceptor)|添加拦截器，让小蚂蚁改变路线或者停止跑路|AntCavesRouter.getInstance().prepare(context,path).addInterceptor(new CustomInterceptor()).cross()|
+| interceptor()|停止小蚂蚁跳转拦截方法|IInterceptorCallBack.interceptor()|
+|interceptor(String path)|改变小蚂蚁跳转的路线|IInterceptorCallBack.interceptor(path)|
+
 ### 混淆配置
 <pre>
 -dontwarn com.google.**
@@ -197,7 +209,7 @@ public class App extends Application {
 2.日志打印优化
 3.代码规范优化
 ### 感谢
-感谢ActivityRouter作者曹神，ARouter作者Alex，Sixgod六神，Camel神的技术和精神支持。
+感谢ActivityRouter作者曹神，ARouter作者Alex，Sixgod六神，Tom神，Camel神的技术和精神支持。
 ### 联系：
 个人邮箱：thisuper@163.com
 加群沟通：284430347
