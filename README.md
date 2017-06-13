@@ -43,8 +43,9 @@ public class App extends Application {
         super.onCreate();
     }
 }
-同时在主module 上的任意一个activity 上添加该注解module 的名字 
+同时在主module 上的任意一个类 上添加该注解module 的名字 
 @Module(module = "app")
+然后在对应的activity添加path 即可。
 @Router(path = "activity/about") 
 //如果在Router 注解中添加了module = "xxx", 以这个成为module名字。
 2.build项目
