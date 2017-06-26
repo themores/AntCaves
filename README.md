@@ -33,9 +33,10 @@ step2:￼在项目module中build.gradle 添加如下引用(如果是多module �
 ### 如何使用？
 
 #### 1.初始化
-<pre>
 1.注册module
+
 在module中，常见为app_module,在Application类或者新建一个类，添加注解。
+``` java
 @Modules(module = "app")
 public class App extends Application {
     @Override
@@ -43,23 +44,31 @@ public class App extends Application {
         super.onCreate();
     }
 }
+``` 
 同时在主module 上的任意一个类 上添加该注解module 的名字 
+``` java
 @Module(module = "app")
+``` 
 然后在对应的activity添加path 即可。
+``` java
 @Router(path = "activity/about") 
+``` 
 //如果在Router 注解中添加了module = "xxx", 以这个成为module名字。
 2.build项目
-3.重写Application类，在其onCreate()方法中初始化，添加<code>AntCavesSDK.init();</code>
-</pre>
+3.重写Application类，在其onCreate()方法中初始化，添加
+``` java 
+AntCavesSDK.init();
+```
 #### 2.说明
-<pre>
-关于path,必须遵循http url形式。如:module://activity/about
-关于参数param,必须遵循key->type(基本数据类型+String)的形式进行规范。如:id->int,name->String,isClose->boolean
-</pre>
+
+>关于path,必须遵循http url形式。如:module://activity/about
+
+>关于参数param,必须遵循key->type(基本数据类型+String)的形式进行规范。如:id->int,name->String,isClose->boolean
+
 
 #### 3.多种方式添加path
 step1:注解的方式添加
-<pre>
+``` java 
 @Router(path = "activity/about", param = {"id->int", "name->String"})
 public class AboutActivity extends Activity {
     @Override
@@ -69,7 +78,7 @@ public class AboutActivity extends Activity {
         Toast.makeText(this, getIntent().geIntExtra("id", 0) + "", Toast.LENGTH_LONG).show();
     }
 }
-</pre>
+```
 
 |         注解             |参数      |       请求        |
 | :---------------------- |:---------|:-----------------|
@@ -78,18 +87,22 @@ public class AboutActivity extends Activity {
 | @Router(path="activity/about",param={"id->int","name->String"})|多个参数|module://activity/about?id=123&name=ant
 
 step2:代码的方式添加
-<pre>(无参数)
+(无参数)
+``` java 
 AntCavesRouter.addRouter("module://activity/about",Activity.class)
-</pre>
-<pre>(有参数)
+```
+(有参数)
+``` java 
 List<String> paramList = Arrays.asList("id->int","name->String");
 AntCavesRouter.addRouter("module://activity/about",paramList,Activity.class);
-</pre>
+```
 #### 4.最常见的跳转方式
-<pre>AntCavesRouter.getInstance().prepare(Activity.this, path).go();</pre>
+``` java 
+AntCavesRouter.getInstance().prepare(Activity.this, path).go();
+```
 #### 5.支持传递Object序列化
 User:
-<pre>
+``` java 
 public class User implements Serializable {
     private int id;
     private String name;
@@ -110,9 +123,10 @@ public class User implements Serializable {
         this.name = name;
     }
 }
-</pre>
-<pre>
+``` 
+
 A->B
+``` java 
 A:
 User user = new User();
 user.setId(10086);
@@ -121,10 +135,10 @@ AntCavesRouter.getInstance().prepare(Activity.this, path).equipExtra("user", use
 
 B:
 User user = (User) getIntent().getSerializableExtra("user");
-</pre>
+``` 
 #### 6.支持跳转事件回调
 通过跳转事件回调，得知是否跳转成功/失败/被拦截
-<pre>
+``` java 
  AntCavesRouter.getInstance().prepare(Activity.this, path).go(new IAntCallBack() {
             @Override
             public void onLost(Context context, String message) {
@@ -140,9 +154,9 @@ User user = (User) getIntent().getSerializableExtra("user");
 
             }
         });
-</pre>
+``` 
 #### 7.支持startActivityForResult和setResult跳转方式
-<pre>
+``` java 
 A->B->A
 A->B: int requestCode = 1;
       AntCavesRouter.getInstance().prepare(this, "activity://aba").go(requestCode);
@@ -155,24 +169,25 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     //from B 
 }
-</pre>
+```
 #### 8.支持添加拦截处理
 自定义添加拦截器 CustomInterceptor extends Interceptor
-<pre>
+``` java
 public class CustomInterceptor extends Interceptor {
     @Override
     public void process(Context context, String path, IInterceptorCallBack iInterceptorCallBack) {
      //do something: show Dialog,intent to another Activity etc.
    }
 }
-</pre>
+```
 添加拦截器
-<pre>
+``` java
 AntCavesRouter.getInstance().prepare(Activity.this, path).addInterceptor(new CustomInterceptor()).go();
-</pre>
+```
 #### 9.支持多module方式
 1.注册多module
-<pre>在主module中，常见为app_module,在Application类或者新建一个类，添加注解。
+在主module中，常见为app_module,在Application类或者新建一个类，添加注解。
+``` java
 @Modules(module = {"app", "demo"})
 public class App extends Application {
     @Override
@@ -180,17 +195,19 @@ public class App extends Application {
         super.onCreate();
     }
 }
-</pre>
+```
 同时在主module 上的任意一个类添加改注解module 的名字 
-<pre>
+``` java
 @Module(module = "app")
-</pre>
+```
 同样在其他module 上任意一个类上添加改注解module 的名字 
-<pre>
+``` java
 @Module(module = "demo")
-</pre>
+```
 然后对应的activity 添加路径即可。
+``` java
 @Router(path = "activity/demo")
+```
 #### 10.API使用说明（具体使用请看demo）
 |          API        |       说明      |       例子        |
 | :--------------- |:---------------|:-----------------|
