@@ -1,11 +1,7 @@
 apply plugin: 'com.android.library'
-ext {
-    bintrayName = 'app'
-    artifact = bintrayName
-    libraryName = 'Antcaves sdk'
-    libraryDescription = 'A router for android'
-    libraryVersion = '1.0.0'
-}
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.themores'
+
 
 android {
     compileSdkVersion 24

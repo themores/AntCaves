@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.themores'
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
