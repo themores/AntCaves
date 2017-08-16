@@ -16,6 +16,7 @@ import com.antcaves.Interceptor;
 public class OneInterceptor extends Interceptor {
     @Override
     public void process(Context context, String path, IInterceptorCallBack iInterceptorCallBack) {
-        iInterceptorCallBack.interceptor("app://activity/two?two=123&open=false");
+//        Intent intent = new Intent(context, AntCaves.getRouters().get("activity://two"));
+//        iInterceptorCallBack.interceptor(intent);
     }
 }

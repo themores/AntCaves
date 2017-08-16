@@ -10,6 +10,6 @@ package com.antcaves.processor;
 public class Consts {
     public static final String ANNOTATION_TYPE_ROUTER = "com.antcaves.processor.Router";
     public static final String ACTIVITY = "android.app.Activity";
-    public static  String moduleName;
+
 
 }

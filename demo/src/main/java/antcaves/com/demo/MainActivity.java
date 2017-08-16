@@ -1,5 +1,6 @@
 package antcaves.com.demo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +10,7 @@ import android.widget.Toast;
 
 import com.antcaves.AntCaves;
 import com.antcaves.AntCavesRouter;
-import com.antcaves.processor.Module;
+import com.antcaves.IAntCallBack;
 import com.antcaves.processor.Router;
 
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ import java.util.List;
 
 ;
 
-@Module(module = "app")
 @Router(path = "activity/main",
         param = {"id->int", "name->String", "price->double"})
 public class MainActivity extends AppCompatActivity {
@@ -35,18 +35,33 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void go(View view) {
-        AntCavesRouter.getInstance().prepare(this, "app://activity/one?one=true&name=liyuan").go();
+        AntCavesRouter.getInstance().prepare(this, "app://activity/one?one=true&name=liyuan").go(new IAntCallBack() {
+            @Override
+            public void onLost(Context context, String message) {
+            }
+
+            @Override
+            public void onArrival(Context context, String message) {
+
+            }
+
+            @Override
+            public void onInterceptor(Context context, String message) {
+
+            }
+        });
+
     }
 
     public void go1(View view) {
-        AntCavesRouter.getInstance().prepare(this, "app://activity/two?two=women&open=false").go();
+        AntCavesRouter.getInstance().prepare(this, "app://activity/two?open=false&two=women ").go();
     }
 
     public void go2(View view) {
         User user = new User();
         user.setId(10086);
         user.setName("this is a object");
-        AntCavesRouter.getInstance().prepare(this, "app://activity/three").equipExtra("user", user).go();
+        AntCavesRouter.getInstance().prepare(this, "app://activity/three ").equipExtra("user", user).go();
     }
 
     public void go3(View view) {
@@ -54,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void go4(View view) {
-        AntCavesRouter.getInstance().prepare(this, "demo://activity/demo").cross();
+        AntCavesRouter.getInstance().prepare(this, "demo://activity/demo").go();
     }
 
     @Override

@@ -15,7 +15,7 @@ import com.antcaves.processor.Router;
  * @email thisuper@qq.com
  * @date 17/3/8 上午11:27
  */
-@Router(path = "activity/aba")
+@Router(module = "app", path = "activity/aba")
 public class ABAActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
